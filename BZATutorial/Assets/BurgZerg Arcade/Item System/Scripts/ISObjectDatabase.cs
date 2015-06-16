@@ -5,9 +5,5 @@ using System.Collections.Generic;
 
 namespace BurgZergArcade.ItemSystem
 {
-    public class ISObjectDatabase : ScriptableObject
-    {
-        [SerializeField] List<ISObject> ObjectDatabase;
-
-    }
+    public class ISObjectDatabase : ScriptableObjectDatabase<ISObject> { }
 }

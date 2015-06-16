@@ -27,19 +27,27 @@ namespace BurgZergArcade.ItemSystem.Editor
 
         }
 
+
+
         void OnEnable()
         {
             qualityDatabase = ScriptableObject.CreateInstance<ISQualityDatabase>();
             qualityDatabase = qualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
-
-       
         }
+
+
 
         void OnGUI()
         {
-           ListView();
-         
+            if (qualityDatabase == null)
+            {
+                Debug.LogWarning("qualityDatabase not loaded.");
+                return;
+            }
 
+
+            ListView();
+         
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
             BottomBar();
             GUILayout.EndHorizontal();
