@@ -17,7 +17,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
 
 
-        [MenuItem("BZA/Database/Quality Editor %#i")]
+        [MenuItem("BZA/Database/Quality Editor %#w")]
         public static void Init()
         {
             ISQualityDatabaseEditor window = EditorWindow.GetWindow<ISQualityDatabaseEditor>();
