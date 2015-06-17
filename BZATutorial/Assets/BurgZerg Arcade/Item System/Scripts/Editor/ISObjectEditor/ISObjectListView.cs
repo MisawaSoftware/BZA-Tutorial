@@ -12,7 +12,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         {
 
             _scrollPos = GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.Width(_listViewWidth));
-            
+            GUILayout.Label("List View");
 
 
             GUILayout.EndScrollView();
