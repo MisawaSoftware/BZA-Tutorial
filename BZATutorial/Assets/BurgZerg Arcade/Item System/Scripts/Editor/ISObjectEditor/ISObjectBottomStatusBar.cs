@@ -8,7 +8,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         void BottomStatusBar()
         {
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
-            GUILayout.Label("Detail View)");
+            GUILayout.Label("Bottom status bar view");
             GUILayout.EndHorizontal();
         }
     }
