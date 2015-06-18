@@ -6,6 +6,17 @@ namespace BurgZergArcade.ItemSystem.Editor
 {
     public partial class ISObjectEditor : EditorWindow
     {
+
+
+        ISWeaponDatabase database;
+       
+        int selectedIndex = -1;
+
+        const int SPRITE_BUTTON_SIZE = 46;
+        const string DATABASE_NAME = @"bzaWeaponDatabase.asset";
+        const string DATABASE_PATH = @"Database";
+        const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+
         [MenuItem("BZA/Database/Item System Editor %#o")]
         public static void Init()
         {
@@ -20,8 +31,8 @@ namespace BurgZergArcade.ItemSystem.Editor
 
         void OnEnable()
         {
-           
-
+            if (database == null)
+            database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase>(DATABASE_PATH, DATABASE_NAME);
         }
 
 
