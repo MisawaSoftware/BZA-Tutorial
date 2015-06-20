@@ -45,7 +45,7 @@ namespace BurgZergArcade.ItemSystem.Editor
             ItemDetails();
             GUILayout.EndHorizontal();
 
-            BottomStatusBar();
+ 
         } 
 
 

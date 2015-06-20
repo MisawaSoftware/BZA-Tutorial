@@ -12,15 +12,13 @@ namespace BurgZergArcade.ItemSystem.Editor
         {
 
             GUILayout.BeginVertical("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
-            GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
+            GUILayout.BeginVertical( GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
            
 
             if (showNewWeaponDetails)
                 DisplayNewWeapon();
-
-          
-
-            GUILayout.EndHorizontal();
+            GUILayout.EndVertical();
+         
 
             //GUILayout.Space(50);
             GUILayout.BeginHorizontal();
@@ -34,6 +32,7 @@ namespace BurgZergArcade.ItemSystem.Editor
 
         void DisplayNewWeapon()
         {
+   
             tempWeapon.OnGUI();
             
   

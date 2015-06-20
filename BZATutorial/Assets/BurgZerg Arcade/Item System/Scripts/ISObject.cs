@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEditor;
 
 namespace BurgZergArcade.ItemSystem
 {
@@ -56,6 +57,29 @@ namespace BurgZergArcade.ItemSystem
             get { return _value; }
 
             set { _value = value; }
+        }
+
+
+        //This code is going to be placed in a new class later on.
+       public virtual void OnGUI()
+        {
+            GUILayout.BeginVertical();
+            _name = EditorGUILayout.TextField("Name", _name);
+            _value = System.Convert.ToInt32(EditorGUILayout.TextField("Value", _value.ToString()));
+            _burdon = System.Convert.ToInt32(EditorGUILayout.TextField("Burdon", _burdon.ToString()));
+            DisplayIcon();
+            DisplayQuality();
+            GUILayout.EndVertical();
+        }
+
+        public void DisplayIcon()
+        {
+            GUILayout.Label("Icon");
+        }
+
+        public void DisplayQuality()
+        {
+            GUILayout.Label("Quality");
         }
     }
 }
