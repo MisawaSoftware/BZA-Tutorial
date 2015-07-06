@@ -14,10 +14,10 @@ namespace BurgZergArcade.ItemSystem.Editor
         const int SPRITE_BUTTON_SIZE = 46;
         const string DATABASE_NAME = @"bzaDatabase.asset";
         const string DATABASE_PATH = @"Database";
-        const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+    //    const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
 
 
-      //  [MenuItem("BZA/Database/Quality Editor %#w")]
+       [MenuItem("BZA/Database/Quality Editor %#w")]
         public static void Init()
         {
             ISQualityDatabaseEditor window = EditorWindow.GetWindow<ISQualityDatabaseEditor>();
