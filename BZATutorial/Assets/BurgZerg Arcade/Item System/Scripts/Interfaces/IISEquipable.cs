@@ -5,6 +5,7 @@ namespace BurgZergArcade.ItemSystem
 {
     public interface IISEquipable 
     {
+       
         ISEquipmentSlot EquipmentSlot { get; }
         bool Equip();
     }
