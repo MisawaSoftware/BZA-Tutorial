@@ -61,8 +61,11 @@ namespace BurgZergArcade.ItemSystem
 
 
         //This code is going to be placed in a new class later on.
+       const string DATABASE_NAME = @"bzaDatabase.asset";
+       const string DATABASE_PATH = @"Database";
+        ISQualityDatabase qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
  
-        ISQualityDatabase qdb;
+
         int qualitySelectedIndex = 0;
         string[] option = new string[] { "com", "unc", "rar" };
 
@@ -91,9 +94,7 @@ namespace BurgZergArcade.ItemSystem
 
         public ISObject()
         {
-             string DATABASE_NAME = @"bzaDatabase.asset";
-             string DATABASE_PATH = @"Database";
-             qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
+
             option = new string[qdb.Count];
             for (int cnt = 0; cnt < qdb.Count; cnt++)
             {

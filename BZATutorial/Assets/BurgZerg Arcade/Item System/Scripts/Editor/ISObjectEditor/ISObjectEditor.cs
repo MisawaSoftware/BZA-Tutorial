@@ -22,7 +22,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         {
             ISObjectEditor window = EditorWindow.GetWindow<ISObjectEditor>();
             window.minSize = new Vector2(800, 600);
-            window.title = "Item System";
+            window.titleContent.text = "Item System";
             window.Show();
 
         }
