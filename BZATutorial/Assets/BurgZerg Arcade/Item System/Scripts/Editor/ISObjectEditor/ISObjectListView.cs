@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 
@@ -12,8 +13,13 @@ namespace BurgZergArcade.ItemSystem.Editor
         {
 
             _scrollPos = GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.Width(_listViewWidth));
-            GUILayout.Label("List View");
+           
 
+            for (int cnt = 0; cnt < database.Count; cnt++)
+            {
+                GUILayout.Button(database.Get(cnt).Name, "box");
+
+            }
 
             GUILayout.EndScrollView();
 

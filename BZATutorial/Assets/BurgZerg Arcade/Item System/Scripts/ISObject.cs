@@ -82,7 +82,7 @@ namespace BurgZergArcade.ItemSystem
 
         public void DisplayIcon()
         {
-            GUILayout.Label("Icon");
+            _icon = EditorGUILayout.ObjectField("Icon", _icon, typeof(Sprite), false) as Sprite;
         }
 
 
@@ -111,5 +111,10 @@ namespace BurgZergArcade.ItemSystem
            qualitySelectedIndex = EditorGUILayout.Popup("Quality", qualitySelectedIndex, option);
             _quality = qdb.Get(SelectedQualityID);
         }
+
+        
+        
+
+
     }
 }
