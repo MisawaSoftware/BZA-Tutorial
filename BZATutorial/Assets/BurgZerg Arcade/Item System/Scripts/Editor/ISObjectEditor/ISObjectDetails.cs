@@ -23,6 +23,7 @@ namespace BurgZergArcade.ItemSystem.Editor
             GUILayout.BeginVertical( GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
 
             EditorGUILayout.LabelField("State: " + state);
+            EditorGUILayout.LabelField("Index: " + _selectedIndex);
             switch (state)
             {
                 case DisplayState.DETAILS:
