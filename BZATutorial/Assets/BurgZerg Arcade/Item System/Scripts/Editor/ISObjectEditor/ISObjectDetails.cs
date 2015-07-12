@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 namespace BurgZergArcade.ItemSystem.Editor
@@ -20,11 +21,11 @@ namespace BurgZergArcade.ItemSystem.Editor
 
             GUILayout.BeginVertical("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
             GUILayout.BeginVertical( GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
-           
+
+            EditorGUILayout.LabelField("State: " + state);
             switch (state)
             {
                 case DisplayState.DETAILS:
-                    if (showNewWeaponDetails)
                         DisplayNewWeapon();
                     break;
                 default:
@@ -57,12 +58,12 @@ namespace BurgZergArcade.ItemSystem.Editor
         void DisplayButtons()
         {
 
-            if (!showNewWeaponDetails)
+            if (state == DisplayState.NONE)
             {
                 if (GUILayout.Button("Create Weapon"))
                 {
                     tempWeapon = new ISWeapon();
-                    showNewWeaponDetails = true;
+                    state = DisplayState.DETAILS;
                     Debug.Log("Create new weapon");
                 }
             }
@@ -70,22 +71,23 @@ namespace BurgZergArcade.ItemSystem.Editor
             {
                 if (GUILayout.Button("Save"))
                 {
-                    showNewWeaponDetails = false;
+                    if (_selectedIndex == -1)
+                        database.Add(tempWeapon);
+                    else
+                        database.Replace(_selectedIndex,tempWeapon);
 
-                    //string DATABASE_NAME = @"bzaDatabase.asset";
-                    //string DATABASE_PATH = @"Database";
-                    //ISQualityDatabase qdb;
-                    //qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
-                    //tempWeapon.Quality = qdb.Get(tempWeapon.SelectedQualityID);
-          
+                    state = DisplayState.NONE;
                     database.Add(tempWeapon);
-                    tempWeapon = null;
+                        tempWeapon = null;
+                    _selectedIndex = -1;
                 }
 
                 if (GUILayout.Button("Cancel"))
                 {
                     tempWeapon = null;
                     showNewWeaponDetails = false;
+                    state = DisplayState.NONE;
+                    _selectedIndex = -1;
                 }
             }
         }
