@@ -10,7 +10,7 @@ namespace BurgZergArcade.ItemSystem.Editor
 
         ISWeaponDatabase database;
        
-        int selectedIndex = -1;
+        //int selectedIndex = -1;
 
         const int SPRITE_BUTTON_SIZE = 46;
         const string DATABASE_NAME = @"bzaWeaponDatabase.asset";
