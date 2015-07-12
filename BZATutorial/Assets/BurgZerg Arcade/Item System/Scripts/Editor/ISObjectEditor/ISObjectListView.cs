@@ -11,6 +11,9 @@ namespace BurgZergArcade.ItemSystem.Editor
         int _listViewWidth = 200;
         int _listViewButtonWidth = 190;
         int _listViewButtonHeight = 25;
+
+        int _selectedIndex = 0;
+
         void ListView()
         {
 
@@ -20,7 +23,10 @@ namespace BurgZergArcade.ItemSystem.Editor
             for (int cnt = 0; cnt < database.Count; cnt++)
             {
 
-                GUILayout.Button(database.Get(cnt).Name, "box",  GUILayout.Width(_listViewButtonWidth), GUILayout.Height(_listViewButtonHeight));
+               if( GUILayout.Button(database.Get(cnt).Name, "box",  GUILayout.Width(_listViewButtonWidth), GUILayout.Height(_listViewButtonHeight)))
+                {
+                    _selectedIndex = cnt;
+                }
 
 
             }

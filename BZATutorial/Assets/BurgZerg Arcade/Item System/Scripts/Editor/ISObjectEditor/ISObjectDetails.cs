@@ -5,8 +5,15 @@ namespace BurgZergArcade.ItemSystem.Editor
 {
     public partial class ISObjectEditor   
     {
+        enum DisplayState
+        {
+            NONE, 
+            DETAILS
+        };
         ISWeapon tempWeapon = new ISWeapon();
         bool showNewWeaponDetails = false;
+        DisplayState state = DisplayState.NONE;
+
 
         void ItemDetails()
         {
@@ -14,9 +21,18 @@ namespace BurgZergArcade.ItemSystem.Editor
             GUILayout.BeginVertical("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
             GUILayout.BeginVertical( GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
            
+            switch (state)
+            {
+                case DisplayState.DETAILS:
+                    if (showNewWeaponDetails)
+                        DisplayNewWeapon();
+                    break;
+                default:
+                    break;
+            }
 
-            if (showNewWeaponDetails)
-                DisplayNewWeapon();
+
+            
             GUILayout.EndVertical();
          
 
