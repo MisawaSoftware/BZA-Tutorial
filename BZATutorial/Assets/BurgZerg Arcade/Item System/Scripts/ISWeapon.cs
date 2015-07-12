@@ -12,23 +12,37 @@ namespace BurgZergArcade.ItemSystem
 
         [SerializeField] int _durability;
         [SerializeField] int _maxDurability;
-        [SerializeField] ISEquipmentSlot _equipmentSlot;
+      //  [SerializeField] ISEquipmentSlot _equipmentSlot;
         [SerializeField] GameObject _prefab;
         public EquipmentSlot equipmentSlot;
 
+
+
         public ISWeapon()
         {
-            _equipmentSlot = new ISEquipmentSlot();
+           
          
 
         }
-        public ISWeapon(int dur, int maxDur, ISEquipmentSlot equipSlot, GameObject prefab)
+        public ISWeapon(ISWeapon weapon)
         {
-            _durability = dur;
-            _maxDurability = maxDur;
-            _equipmentSlot = equipSlot;
-            _prefab = prefab;
+            Clone(weapon);
+
         }
+
+
+
+        public void Clone(ISWeapon weapon)
+        {
+            base.Clone(weapon);
+
+            _durability = weapon.Durability;
+            _maxDurability = weapon.MaxDurability;
+            equipmentSlot = weapon.equipmentSlot;
+            _prefab = weapon.Prefab;
+        }
+
+
 
         public int Attack
         {
@@ -86,10 +100,7 @@ namespace BurgZergArcade.ItemSystem
             }
         }
 
-        public ISEquipmentSlot EquipmentSlot
-        {
-            get {return _equipmentSlot;}
-        }
+
 
         public GameObject Prefab
         {

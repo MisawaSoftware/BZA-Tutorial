@@ -14,7 +14,19 @@ namespace BurgZergArcade.ItemSystem
         [SerializeField] int _burdon;
         [SerializeField] ISQuality _quality;
 
+        public ISObject(ISObject item)
+        {
+            Clone(item);
+        }
 
+        public void  Clone(ISObject item)
+        {
+            _name = item.Name;
+            _icon = item.Icon;
+            _value = item.Value;
+            _burdon = item.Burdon;
+            _quality = item.Quality;
+        }
 
         public int Burdon
         {
