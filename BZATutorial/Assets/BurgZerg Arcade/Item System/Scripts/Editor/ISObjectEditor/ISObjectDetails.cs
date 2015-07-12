@@ -73,12 +73,18 @@ namespace BurgZergArcade.ItemSystem.Editor
                 if (GUILayout.Button("Save"))
                 {
                     if (_selectedIndex == -1)
+                    {
                         database.Add(tempWeapon);
+                        Debug.Log("Adding new tempWeapon to database");
+                    }
                     else
-                        database.Replace(_selectedIndex,tempWeapon);
+                    {
+                        database.Replace(_selectedIndex, tempWeapon);
+                        Debug.Log("Replacing tempWeapon in database");
+                    }
 
                     state = DisplayState.NONE;
-                    database.Add(tempWeapon);
+                  
                         tempWeapon = null;
                     _selectedIndex = -1;
                 }
